@@ -1,7 +1,8 @@
 class Graph(object):
-    def __init__(self, graph = {}, vertex_error = {}):
+    def __init__(self, graph = {}, vertex_error = {}, turn_styles = []):
         self.graph = graph
         self.vertex_error = vertex_error
+        self.turn_styles = turn_styles
 
     def vertices(self):
         return list(self.graph.keys())
@@ -26,6 +27,16 @@ class Graph(object):
     def set_vertex_error(self, vertex, error):
         self.vertex_err[vertex] = error
 
+    def add_turn_style(self, vertex):
+        self.turn_styles.append(vertex)
+    
+    def get_turn_styles(self):
+        return self.turn_styles
+
+    def remove_turn_style(self, vertex):
+        if vertex in self.turn_styles:
+            self.turn_styles.remove(vertex)
+
     def add_edge(self, vertex1, vertex2):
         if vertex1 in self.graph:
             self.graph[vertex1].append(vertex2)
@@ -36,8 +47,9 @@ class Graph(object):
 
     def print_graph(self):
         for vertex in self.graph.keys():
-            print vertex + " error: "+ str(self.vertex_error[vertex]) + ": \n"
+            is_turn_style = vertex in self.turn_styles
+            print "Vertex: "+vertex + ", error: "+ str(self.vertex_error[vertex]) + ", turn style status: "+ str(is_turn_style) + ": \n"
             for neighbor in self.graph[vertex]:
-                print "  "+neighbor+"\n"
+                print "  Neighbor of "+vertex+": "+neighbor+"\n"
 
 

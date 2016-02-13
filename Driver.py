@@ -15,8 +15,9 @@ def main():
         "d" : 0,
         "e" : 0
         }
+    turn_styles_init = ["c"]
 
-    g = Graph.Graph(graph_init, vertex_error_init)
+    g = Graph.Graph(graph_init, vertex_error_init, turn_styles_init)
     g.print_graph()
 
     PlaceTurnStyles.set_errors(g)
