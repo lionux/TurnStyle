@@ -23,6 +23,9 @@ class Graph(object):
 
     def get_vertex_error(self, vertex):
         return self.vertex_err[vertex]
+
+    def get_neighbors(self, vertex):
+        return self.graph[vertex]
     
     def set_vertex_error(self, vertex, error):
         self.vertex_err[vertex] = error
