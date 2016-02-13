@@ -22,13 +22,13 @@ class Graph(object):
             self.vertex_error[vertex] = error
 
     def get_vertex_error(self, vertex):
-        return self.vertex_err[vertex]
+        return self.vertex_error[vertex]
 
     def get_neighbors(self, vertex):
         return self.graph[vertex]
     
     def set_vertex_error(self, vertex, error):
-        self.vertex_err[vertex] = error
+        self.vertex_error[vertex] = error
 
     def add_turn_style(self, vertex):
         self.turn_styles.append(vertex)
