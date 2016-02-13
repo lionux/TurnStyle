@@ -1,3 +1,7 @@
+# This program is the Graph class for the turn style problem
+# Last modified 2016-02-13
+# @author SAM MICKA
+
 class Graph(object):
     def __init__(self, graph = {}, vertex_error = {}, turn_styles = []):
         self.graph = graph

@@ -1,3 +1,7 @@
+# This is a driver program to test the graph class and turn style placement
+# Last modified 2016-02-13
+# @author SAM MICKA  
+
 import Graph
 import PlaceTurnStyles
 def main():

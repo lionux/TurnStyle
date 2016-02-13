@@ -1,3 +1,8 @@
+# This program places the turn styles on the graph
+# Last modified 2016-02-13
+# @author SAM MICKA
+
+#Reset the errors of each node based on how far they are from a turn style
 def set_errors(graph):
     for v in graph.vertices():
         #print "Path to turn style from: "+v+" "+str(find_nearest_turn_style(v, graph))
@@ -5,9 +10,8 @@ def set_errors(graph):
     graph.print_graph()
     place_turn_styles(graph)
 
-"""
-Using a modified BFS that ignores unbranching paths we will find the nearest turn style 
-"""
+
+#Using a modified BFS that ignores unbranching paths we will find the nearest turn style 
 def find_nearest_turn_style(v, graph):
     q = [v]
     while q:
@@ -34,6 +38,7 @@ def find_nearest_turn_style(v, graph):
             new_path = list(graph.get_neighbors(vertex))
             q.append(new_path)
 
+#With the errors reset this function places a turn style at the node with the highest error
 def place_turn_styles(graph):
     turn_style_candidate = ""
     max_error = 0
