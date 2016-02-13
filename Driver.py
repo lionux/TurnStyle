@@ -1,22 +1,25 @@
 import Graph
+import PlaceTurnStyles
 def main():
     graph_init = {
         "a": ["b", "c", "d"],
         "b": ["e", "a", "b"],
         "c": ["a"],
-        "d": ["e", "a"]
+        "d": ["e", "a"],
+        "e": []
         }
     vertex_error_init = {
-        "a" : 100,
-        "b" : 100,
-        "c" : 35,
-        "d" : 23,
-        "e" : 74
+        "a" : 0,
+        "b" : 0,
+        "c" : 0,
+        "d" : 0,
+        "e" : 0
         }
 
     g = Graph.Graph(graph_init, vertex_error_init)
-    g.add_edge("c", "e")
     g.print_graph()
+
+    PlaceTurnStyles.set_errors(g)
 
 if __name__ == '__main__':main()
 
