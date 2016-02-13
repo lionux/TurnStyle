@@ -2,7 +2,7 @@ def set_errors(graph):
     for v in graph.vertices():
         print "Path to turn style from: "+v+" "+str(find_nearest_turn_style(v, graph))
         
-"""Using BSF we will find the nearest turn style 
+"""Using BFS we will find the nearest turn style 
 TODO: Need to make sure that we do not count edges that are not part of a branch...
 """
 def find_nearest_turn_style(v, graph):
