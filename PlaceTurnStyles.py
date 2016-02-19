@@ -7,7 +7,7 @@ def set_errors(graph):
     for v in graph.vertices():
         #print "Path to turn style from: "+v+" "+str(find_nearest_turn_style(v, graph))
         graph.set_vertex_error(v, find_nearest_turn_style(v, graph))
-    graph.print_graph()
+    #graph.print_graph()
     place_turn_styles(graph)
 
 
@@ -19,13 +19,12 @@ def find_nearest_turn_style(v, graph):
         vertex = path[-1]
         #CASE 1: our vertex is already a turn style
         if vertex in graph.get_turn_styles():
-            del path[0] #get rid of first element because we don't need it in our path
             return len(path)-1 
         #CASE 2: one of the neighbors is a turn style
         if len(set(graph.get_turn_styles()).intersection(set(graph.get_neighbors(vertex)))) != 0:
-            turn_style = list(set(graph.get_turn_styles()).intersection(set(graph.get_neighbors(vertex))))[0]
-            path.append(turn_style)
-            del path[0] #get rid of the first element because we don't need it in our path
+            #turn_style = list(set(graph.get_turn_styles()).intersection(set(graph.get_neighbors(vertex))))[0]
+            #path.append(turn_style)
+            #del path[0] #get rid of the first element because we don't need it in our path
             return len(path)-1
         #CASE 3: no turn styles in neighbor list and there is a branch
         if len(graph.get_neighbors(vertex)) > 1:

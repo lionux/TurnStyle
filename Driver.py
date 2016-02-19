@@ -4,6 +4,7 @@
 
 import Graph
 import PlaceTurnStyles
+inf = 99999999
 def main():
     graph_init = {
         "a": ["b", "g"],
@@ -15,13 +16,13 @@ def main():
         "g": ["b"]
         }
     vertex_error_init = {
-        "a" : 0,
-        "b" : 0,
-        "c" : 0,
-        "d" : 0,
-        "e" : 0,
-        "f" : 0,
-        "g" : 0
+        "a" : inf,
+        "b" : inf,
+        "c" : inf,
+        "d" : inf,
+        "e" : inf,
+        "f" : inf,
+        "g" : inf
         }
     turn_styles_init = ["c"]
 
@@ -31,6 +32,39 @@ def main():
     
     g.print_graph()
 
+    graph_init2 = {
+        "a": ["b", "c"],
+        "b": ["c", "e"],
+        "c": ["h"],
+        "d": ["k"],
+        "e": ["d"],
+        "f": ["g"],
+        "g": ["h", "j"],
+        "h": ["i"],
+        "i": ["j"],
+        "j": [],
+        "k": []
+        }
+    vertex_error_init2 = {
+        "a" : inf,
+        "b" : inf,
+        "c" : inf,
+        "d" : inf,
+        "e" : inf,
+        "f" : inf,
+        "g" : inf,
+        "h" : inf,
+        "i" : inf,
+        "j" : inf,
+        "k" : inf
+        }
+    
+    turn_styles_init2 = ["a", "j", "k"]
+
+    g2 = Graph.Graph(graph_init2, vertex_error_init2, turn_styles_init2)
+
+    PlaceTurnStyles.set_errors(g2)
+    g2.print_graph()
 if __name__ == '__main__':main()
 
 
