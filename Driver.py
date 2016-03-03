@@ -65,6 +65,29 @@ def main():
 
     PlaceTurnStyles.set_errors(g2)
     g2.print_graph()
+
+    graph_init3 = {
+        "a": ["b"],
+        "b": ["a", "c"],
+        "c": ["b", "d"],
+        "d": ["c", "e"],
+        "e": ["d"]
+        }
+    vertex_error_init3 = {
+        "a" : inf,
+        "b" : inf,
+        "c" : inf,
+        "d" : inf,
+        "e" : inf
+        }
+    
+    turnstiles_init3 = ["a"]
+
+    g3 = Graph.Graph(graph_init3, vertex_error_init3, turnstiles_init3)
+
+    PlaceTurnStyles.set_errors(g3)
+    g3.print_graph()
+
 if __name__ == '__main__':main()
 
 
